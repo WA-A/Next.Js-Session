@@ -5,14 +5,14 @@
 
 
 
-'use client'
+'use client' // must with useEffect use use client
 import Image from 'next/image'
 import styles from './page.module.css'
 import { useEffect } from 'react'
 
 export default function Home() {
   async function getData(){
-    await fetch ('api') // SSG --> get api and store in cache browser
+    await fetch ('api',{cache:"no-store"}) // SSR --> get api and  no store in cache browser
   }
   useEffect(()=>{
     getData()
