@@ -12,7 +12,7 @@ import { useEffect } from 'react'
 
 export default function Home() {
   async function getData(){
-    await fetch ('api',{cache:"no-store"}) // SSR --> get api and  no store in cache browser
+    await fetch ('api',{next:{revalidate:60}}) // ISR --> get api and  each 60 second check In update or not
   }
   useEffect(()=>{
     getData()
